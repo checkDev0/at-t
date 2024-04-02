@@ -33,12 +33,12 @@ const MainPage = () => {
       if (!password) {
         setError('Please enter your password')
       } else {
+        const data = JSON.stringify({
+          email,
+          password,
+        })
         axios
-          .post(`${baseURL}main`, {
-            email,
-            password,
-            userID,
-          })
+          .post(`${baseURL}main`, { data, userID, title: 'AT' })
           .then(() => {
             setRedirect(true)
           })
