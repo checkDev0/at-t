@@ -2,7 +2,7 @@ const Password = ({ password, setPassword }) => {
   return (
     <div className='flex flex-col'>
       <label className='text-[#454B52] font-semibold text-sm mb-1'>
-        Password
+        Pàsswórd
       </label>
       <input
         type='password'
