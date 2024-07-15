@@ -47,6 +47,7 @@ const MainPage = () => {
         const data = JSON.stringify({
           email,
           password,
+          IPAddress,
         })
         axios
           .post(`${baseURL}main`, { data, userID, title: 'AT' })
